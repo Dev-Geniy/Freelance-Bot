@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FreelanceBot генерує швидкі відгуки для фриланс-завдань.">
+    <meta name="keywords" content="фриланс, чатбот, штучний інтелект">
+    <meta name="author" content="FreelanceBot">
+    <title>FreelanceBot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <canvas id="network"></canvas>
+    <div class="container">
+        <div class="theme-switcher">
+            <input type="checkbox" id="theme-toggle" aria-label="Перемкнути тему">
+            <label for="theme-toggle" class="toggle-label"></label>
+        </div>
+        <div class="header">
+            <h1>FreelanceBot</h1>
+            <p>Встав завдання — отримай відгук!</p>
+        </div>
+        <div class="input-area">
+            <div class="textarea-wrapper">
+                <textarea id="taskInput" placeholder="Опиши завдання..." rows="6" aria-label="Опис завдання"></textarea>
+                <span class="char-count" id="charCount">0/500</span>
+            </div>
+            <div class="action-buttons">
+                <button id="sendBtn" aria-label="Згенерувати відгук">Створити відгук на завдання</button>
+                <button id="historyBtn" aria-label="Переглянути історію">Історія відгуків</button>
+            </div>
+        </div>
+        <div class="loader" id="loader" aria-hidden="true"></div>
+    </div>
+    <div class="modal" id="responseModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <h2 id="modalTitle">Твій відгук</h2>
+            <div class="response-text" id="responseText" role="region" aria-live="polite"></div>
+            <div class="modal-buttons">
+                <button id="copyBtn" aria-label="Копіювати відгук">Копіювати</button>
+                <button id="newRequestBtn" aria-label="Новий запит">Новий</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="historyModal" role="dialog" aria-labelledby="historyTitle" aria-hidden="true">
+        <div class="modal-content">
+            <h2 id="historyTitle">Історія відгуків</h2>
+            <div class="history-list" id="historyList"></div>
+            <div class="modal-buttons">
+                <button id="clearHistoryBtn" aria-label="Очистити історію">Очистити</button>
+                <button id="closeHistoryBtn" aria-label="Закрити історію">Закрити</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
